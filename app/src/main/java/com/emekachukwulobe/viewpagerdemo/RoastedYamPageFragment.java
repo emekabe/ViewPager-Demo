@@ -8,13 +8,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+
 public class RoastedYamPageFragment extends Fragment {
 
     private Button agreeButton;
     private TextView coolText;
 
-    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +35,29 @@ public class RoastedYamPageFragment extends Fragment {
         });
 
         return rootView;
+
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("MY_STRING", coolText.getText().toString());
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+
+        try {
+            coolText.setText(savedInstanceState.getString("MY_STRING"));
+        }
+        catch (NullPointerException e){
+//            Toast.makeText(getContext(), "Damn", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e){
+            //Toast.makeText(getContext(), "Damn", Toast.LENGTH_SHORT).show();
+            //Hmm
+        }
 
     }
 }

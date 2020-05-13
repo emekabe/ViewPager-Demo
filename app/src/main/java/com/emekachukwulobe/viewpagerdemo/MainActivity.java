@@ -7,6 +7,12 @@ import androidx.viewpager2.widget.ViewPager2;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends FragmentActivity {
 
