@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -44,12 +45,22 @@ public class MainActivity extends FragmentActivity {
         viewPager.setAdapter(pagerAdapter);
 
 
-        String girls[] = {"Mia", "Grace", "Precious", "Zee", "Chidinma"};
+        String girls[] = {"Mia", "Grace", "Simi", "Precious", "Chidinma"};
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
+
 //        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText("OBJECT " +(position +1))).attach();
 //        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(position == 2 ? "Yam": "Obj")).attach();
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(girls[position])).attach();
+
+        for(int i=0; i < tabLayout.getTabCount(); i++) {
+            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+            if (i != 4)
+                p.setMargins(0, 0, 50, 0);
+
+            tab.requestLayout();
+        }
     }
 
 

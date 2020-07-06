@@ -13,13 +13,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:tabMode="scrollable"
+        app:tabIndicatorGravity="center"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabIndicatorAnimationDuration="@android:integer/config_longAnimTime"
+        app:tabIndicatorHeight="50dp"
+        app:tabIndicator="@drawable/a_background"
+        app:tabIndicatorColor="#5F02E3"
+        app:tabRippleColor="#005F02E3"
+        app:tabBackground="@drawable/stroke_background"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
